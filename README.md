@@ -16,7 +16,7 @@ No aplica
 
 El código está repartido entre el controlador radar_controller.rb y el modelo tableless radar.db
 
-El modelo radar.rb contiene la lógica de negocio yse instancia con los parametros "criteria" y "editions".
+El modelo radar.rb contiene la lógica de negocio y se instancia con los parametros "criteria" y "editions".
 
 Una vez inicializado con el metodo **run** se ejecuta el proceso de busqueda de cursos según los criterios datos.
 
