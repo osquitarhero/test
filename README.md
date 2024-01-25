@@ -12,6 +12,16 @@ Rails 7.1.3
 
 No aplica
 
+**Organización del código**
+
+El código está repartido entre el controlador radar_controller.rb y el modelo tableless radar.db
+
+El modelo radar.rb contiene la lógica de negocio yse instancia con los parametros "criteria" y "editions".
+
+Una vez inicializado con el metodo **run** se ejecuta el proceso de busqueda de cursos según los criterios datos.
+
+El controlador se encarga de instanciar esta clase, ejecutar el proceso y de generar la respuesta tanto correcta como incorrectamente.
+
 **Test**
 
 Lanzar rails en el puerto 8888
