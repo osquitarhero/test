@@ -1,7 +1,16 @@
-# README
+# OEI course test api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Código para el "Code test para la OEI"
+
+** Versiones: **
+ruby 3.2.2 (2023-03-30 revision e51014f9c0) [x86_64-darwin21]
+Rails 7.1.3
+
+** Dependencies **
+
+
+
+
 
 Things you may want to cover:
 

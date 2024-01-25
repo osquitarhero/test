@@ -6,6 +6,8 @@ RSpec.describe "Radars", type: :request do
       post "/radar/"
       expect(response).to have_http_status(:success)
     end
+
   end
+  
 
 end
