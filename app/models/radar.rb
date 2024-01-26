@@ -6,6 +6,15 @@ class Radar
   # FIXME just for development purposes
   AVAILABLE_CRITERIA = %i[ type school latest closest]
   
+  # Types by school
+  SCHOOL_TYPES= {
+    educacion: ["infantil", "competencias-digitales","gobernanza"],
+    lenguas: ["portuges"],
+    ciencia_y_cultura: ["educacion-artistica","divulgacion-cientifica"],
+    cooperacion: ["cooperacion"]
+  }
+  
+  
   def initialize(criteria,editions)
     # parse criteria list
     @criteria_list = parse_criteria( criteria )
@@ -71,7 +80,26 @@ class Radar
                 @editions = [ latest_edition ]
               end
             
-            when :type, :school
+            when :school
+              # get the list of type for this school
+              school = criteria_data.split("-").join("_")
+              
+              # check the school_type is valid
+              if SCHOOL_TYPES.keys.include? school.to_sym
+                school_types = SCHOOL_TYPES[school.to_sym]
+              
+                @available_editions.filter! do |edition|
+                  edition_types = edition[:courses].map {|course| course[:type]}
+                  existing_types = edition_types & school_types
+                  if existing_types.count > 0 
+                    edition[:courses].filter! {|course| existing_types.include? course[:type] }
+                  end
+                end
+            
+                @editions = @available_editions
+              end
+            
+            when :type
               if @available_editions.count > 0 
               
                 # filter available options and left only those with 
